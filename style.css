@@ -1,62 +1,73 @@
+@font-face {
+  font-family: "Vazir";
+  src: local("Vazir");
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
 }
 
 body {
+  font-family: Vazir, sans-serif;
+  background: #000;
   height: 100vh;
   overflow: hidden;
 }
 
-/* بک‌گراند اصلی */
-.hero {
-  width: 100%;
-  height: 100vh;
-  background: url("bridge.jpg") center/cover no-repeat;
-  animation: bgFade 2.5s ease forwards;
+.scene {
   position: relative;
-}
-
-/* لایه تیره برای خوانایی */
-.overlay {
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.35);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 60px 20px;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fadeZoom 3s ease-out forwards;
+}
+
+.title {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  text-align: center;
   color: white;
+  font-size: 48px;
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+  animation-delay: 2s;
 }
 
-/* تیتر */
-h1 {
-  font-size: 3rem;
-  letter-spacing: 2px;
-  animation: textFade 2s ease forwards;
-}
-
-/* منو */
 .menu {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
   display: flex;
+  justify-content: center;
   gap: 12px;
+  opacity: 0;
+  animation: fadeInUp 1.5s ease forwards;
+  animation-delay: 2.5s;
 }
 
 .menu button {
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: white;
   padding: 14px 18px;
   border-radius: 16px;
-  border: none;
-  background: rgba(0,0,0,0.6);
-  color: white;
-  font-size: 0.9rem;
+  font-size: 14px;
   backdrop-filter: blur(6px);
 }
 
-/* انیمیشن‌ها */
-@keyframes bgFade {
+/* animations */
+
+@keyframes fadeZoom {
   from {
     opacity: 0;
     transform: scale(1.05);
@@ -67,10 +78,16 @@ h1 {
   }
 }
 
-@keyframes textFade {
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
