@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* بک‌گراند اصلی */
+.hero {
+  width: 100%;
+  height: 100vh;
+  background: url("bridge.jpg") center/cover no-repeat;
+  animation: bgFade 2.5s ease forwards;
+  position: relative;
+}
+
+/* لایه تیره برای خوانایی */
+.overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 20px;
+  color: white;
+}
+
+/* تیتر */
+h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  animation: textFade 2s ease forwards;
+}
+
+/* منو */
+.menu {
+  display: flex;
+  gap: 12px;
+}
+
+.menu button {
+  padding: 14px 18px;
+  border-radius: 16px;
+  border: none;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 0.9rem;
+  backdrop-filter: blur(6px);
+}
+
+/* انیمیشن‌ها */
+@keyframes bgFade {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes textFade {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
